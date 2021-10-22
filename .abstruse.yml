@@ -1,0 +1,13 @@
+image: localhost:5000/bladerunner
+
+script:
+
+  - mkdir /app/tests
+  - cp /build/* /app/tests; rm /app/tests/*.md
+  - ls /app/tests -la
+  - cp /app/*.resource /build
+  - cp /app/Internal.py /build
+  - cp /app/args.py /build
+  - mkdir /root/.config
+  - cp /app/apprise.yml /root/.config
+  - cd /app; ./runtest.py "tests/*"
